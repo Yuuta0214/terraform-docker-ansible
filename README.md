@@ -160,6 +160,31 @@ ansible-playbook -i inventory.ini ping.yml
     ```
     
 
+## Webテストページ（HTML）
+
+- index.html
+    
+    ```jsx
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My First IaC</title>
+        <style>
+            body { width: 35em; margin: 0 auto; font-family: sans-serif; background-color: #f0f8ff; }
+            h1 { color: #2e8b57; }
+        </style>
+    </head>
+    <body>
+        <h1>Hello, Terraform + Ansible!</h1>
+        <p>この画面はAnsibleによって自動的に書き換えられました。</p>
+        <p>文字化けも直りましたね！</p>
+    </body>
+    </html>
+    
+    ```
+    
+
 ### 実行結果（疎通確認）
 
 - Ansible Ping 実行ログ
