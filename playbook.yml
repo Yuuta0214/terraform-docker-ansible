@@ -1,0 +1,17 @@
+- name: Setup Web Server and Custom Page
+  hosts: targets
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Copy custom index.html
+      copy:
+        src: ./index.html
+        dest: /var/www/html/index.html
+        mode: '0644'
+
+    - name: Start Nginx service
+      shell: "service nginx start"
