@@ -133,6 +133,33 @@ ansible-playbook -i inventory.ini ping.yml
     ```
     
 
+## Webサーバー構築（Nginx）
+
+- Playbook.yml  
+※この Playbook で `private_node` に Web サーバーを自動インストールします
+    
+    ```jsx
+    - name: Setup Web Server and Custom Page
+      hosts: targets
+      tasks:
+        - name: Install Nginx
+          apt:
+            name: nginx
+            state: present
+            update_cache: yes
+    
+        - name: Copy custom index.html
+          copy:
+            src: ./index.html
+            dest: /var/www/html/index.html
+            mode: '0644'
+    
+        - name: Start Nginx service
+          shell: "service nginx start"
+    
+    ```
+    
+
 ### 実行結果（疎通確認）
 
 - Ansible Ping 実行ログ
